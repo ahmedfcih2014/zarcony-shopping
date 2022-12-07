@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // this order is important for non failure when use seed command
         $this->call(AdminSeeder::class);
+        $this->call(ClientSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(PaymentMethodSeeder::class);
