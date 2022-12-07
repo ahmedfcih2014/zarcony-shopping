@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'logout' => 'Logout',
+    'dashboard' => 'Dashboard',
+    'brands' => 'Brands',
+    'brand' => 'Brand',
+    'select-brand' => 'Select Brand',
+    'clients' => 'Clients',
+    'products' => 'Products',
+    'orders' => 'Orders',
+    'create-product' => 'Create Product',
+    'sku' => 'SKU',
+    'title' => 'Title',
+    'price' => 'Price',
+    'details' => 'Details',
+    'id' => 'ID',
+    'actions' => 'Actions',
+    'products-count' => 'Products Count',
+    'brands-count' => 'Brands Count',
+    'clients-count' => 'Clients Count',
+    'orders-count' => 'Orders Count',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+];
