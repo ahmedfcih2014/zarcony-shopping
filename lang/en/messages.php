@@ -11,4 +11,7 @@ return [
     'brand-has-products' => 'This brand :name has product ,its not deletable',
     'delete-confirm-title' => "Are you sure?",
     'delete-confirm-msg' => "Once deleted, you will not be able to recover it",
+    'user-created' => 'User Created Successfully',
+    'user-updated' => 'User Updated Successfully',
+    'user-deleted' => 'User Deleted Successfully',
 ];

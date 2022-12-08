@@ -32,7 +32,7 @@
                     <td> {{ $product->title }} </td>
                     <td> {{ $product->sku }} </td>
                     <td>
-                        <div style="display: flex; flex-direction: row; gap: 5px; justify-content: center; align-items: center">
+                        <div class="actions-container">
                             <a href="{{ route('admin.products.edit', ['product' => $product]) }}"
                                 class="btn btn-primary" title="{{ __('words.edit') }}">
                                 <i class="fa fa-edit"></i>

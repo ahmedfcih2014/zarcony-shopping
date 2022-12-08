@@ -12,4 +12,11 @@ class UserEnum {
             self::client_role,
         ];
     }
+
+    public static function getRolesKeyValue() : array {
+        return [
+            ['key' => self::admin_role, 'value' => __('words.admin-role')],
+            ['key' => self::client_role, 'value' => __('words.client-role')],
+        ];
+    }
 }

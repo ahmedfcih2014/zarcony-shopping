@@ -6,7 +6,7 @@
     @include("admin.layout.breadcrumb", ['links' => [
         ['url' => route("admin.home"), 'name' => __("words.dashboard")],
         ['url' => route("admin.products.index"), 'name' => __("words.products")],
-        ['url' => route("admin.products.create"), 'name' => __("words.create-product"), 'is_active' => true],
+        ['url' => route("admin.products.create"), 'name' => __("words.edit-product"), 'is_active' => true],
     ]])
     <div class="container-fluid">
         <div class="row mt-5">

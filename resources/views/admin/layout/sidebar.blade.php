@@ -30,8 +30,8 @@
             </a>
         </li>
         <li>
-            <a href="{{ route("admin.products.index") }}"
-               class="nav-link text-white {{ request()->routeIs('admin.clients.*') ? "active" : "" }}">
+            <a href="{{ route("admin.users.index") }}"
+               class="nav-link text-white {{ request()->routeIs('admin.users.*') ? "active" : "" }}">
                 <i class="fa fa-users"></i>
                 {{ __("words.users") }}
             </a>

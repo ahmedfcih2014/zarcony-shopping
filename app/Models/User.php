@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enum\UserEnum;
+use App\Models\Traits\LatestByIdTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, LatestByIdTrait;
 
     protected $fillable = [
         'name', 'email', 'mobile', 'password', 'user_role'
@@ -22,7 +23,9 @@ class User extends Authenticatable
     ];
 
     public function SetPasswordAttribute($value) {
-        return $this->attributes['password'] = $value ? bcrypt($value) : null;
+        if ($value) {
+            return $this->attributes['password'] = bcrypt($value);
+        }
     }
 
     public function scopeIsAdmin($query) {
@@ -35,5 +38,16 @@ class User extends Authenticatable
 
     public function orders() {
         return $this->hasMany(Order::class, "user_id");
+    }
+
+    // HINT: it's not the perfect way to filter products but is enough for current situation
+    // in case more filter(s) added we most follow other patterns
+    public function scopeFilter($query) {
+        $keyword = request()->get("keyword") ?? null;
+        return $query->when($keyword, function ($q) use ($keyword) {
+            $q->where("name", "like", "%$keyword%");
+            $q->orWhere("mobile", "like", "%$keyword%");
+            $q->orWhere("email", "like", "%$keyword%");
+        });
     }
 }
