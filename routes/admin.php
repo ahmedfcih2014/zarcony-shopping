@@ -9,4 +9,5 @@ Route::post('/logout', 'AuthController@logout')->name("logout");
 Route::group(['middleware' => "admin-auth"], function () {
     Route::get("/", "HomeController@index")->name("home");
     Route::resource("products", "ProductController");
+    Route::resource("brands", "BrandController");
 });

@@ -68,8 +68,7 @@ class ProductController extends Controller
         $requestData['sku'] = Str::slug($requestData['sku']);
         $product->update($requestData);
 
-        return redirect(route("admin.products.index"))
-            ->with("success-message", __("messages.product-updated"));
+        return redirect()->back()->with("success-message", __("messages.product-updated"));
     }
 
     /**
@@ -80,7 +79,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect(route("admin.products.index"))
-            ->with("success-message", __("messages.product-deleted"));
+        return redirect()->back()->with("success-message", __("messages.product-deleted"));
     }
 }

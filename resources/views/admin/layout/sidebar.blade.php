@@ -16,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route("admin.products.index") }}"
+            <a href="{{ route("admin.brands.index") }}"
                class="nav-link text-white {{ request()->routeIs('admin.brands.*') ? "active" : "" }}">
                 <i class="fa fa-flag"></i>
                 {{ __("words.brands") }}
@@ -33,7 +33,7 @@
             <a href="{{ route("admin.products.index") }}"
                class="nav-link text-white {{ request()->routeIs('admin.clients.*') ? "active" : "" }}">
                 <i class="fa fa-users"></i>
-                {{ __("words.clients") }}
+                {{ __("words.users") }}
             </a>
         </li>
         <li>

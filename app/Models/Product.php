@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\LatestByIdTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, LatestByIdTrait;
 
     protected $fillable = [
         "title", "sku", "details", "price", "brand_id"
@@ -26,9 +27,5 @@ class Product extends Model
             $q->orWhere("sku", "like", "%$keyword%");
             $q->orWhere("details", "like", "%$keyword%");
         });
-    }
-
-    public function scopeLatestId($query) {
-        return $query->orderBy("id", "DESC");
     }
 }

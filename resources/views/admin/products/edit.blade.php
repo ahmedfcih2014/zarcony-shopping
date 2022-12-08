@@ -1,6 +1,6 @@
 @extends('admin.layout.base')
 
-@section('title', 'Products')
+@section('title', __('words.products'))
 
 @section('content')
     @include("admin.layout.breadcrumb", ['links' => [
@@ -70,7 +70,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-primary">{{ __("words.create-product") }}</button>
+                        <button class="btn btn-primary">{{ __("words.edit-product") }}</button>
                     </div>
                 </form>
             </div>
