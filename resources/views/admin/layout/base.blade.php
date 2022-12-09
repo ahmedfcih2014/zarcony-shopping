@@ -10,7 +10,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
               integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
               crossorigin="anonymous"
-              referrerpolicy="no-referrer" />
+              referrerpolicy="no-referrer"/>
         <style>
             .actions-container {
                 display: flex; flex-direction: row; gap: 5px; align-items: center
@@ -42,7 +42,7 @@
                 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
                 crossorigin="anonymous"></script>
         <script src="{{ asset("assets/sweet-alert.js") }}"></script>
-        @include("admin.layout.alerts")
+        @include("common.alerts")
         @stack("custom-javascript")
         <script>
             function confirmDelete(formId, hintMsg) {
@@ -53,11 +53,11 @@
                     buttons: true,
                     dangerMode: true,
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        document.getElementById(formId).submit()
-                    }
-                });
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            document.getElementById(formId).submit()
+                        }
+                    });
             }
         </script>
     </body>

@@ -10,8 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        "user_id", "payment_method_id", "total_amount",
-        "order_amount", "delivery_fees", "tax_amount", "order_status"
+        "user_id", "payment_method_id", "order_status", "address_line", "mobile"
     ];
 
     public function client() {
@@ -24,5 +23,9 @@ class Order extends Model
 
     public function paymentMethod() {
         return $this->belongsTo(PaymentMethod::class, "payment_method_id");
+    }
+
+    public function invoice() {
+        return $this->hasOne(Invoice::class, 'order_id');
     }
 }

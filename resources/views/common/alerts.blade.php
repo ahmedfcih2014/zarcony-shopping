@@ -12,6 +12,10 @@
         title = "{{ __("words.warning") }}"
         msg = "{{ session("warn-message") }}"
         type = "warning"
+    @elseif($errors->any())
+        title = "{{ __("words.error") }}"
+        msg = "{{ collect($errors->all())->implode(",") }}"
+        type = "error"
     @endif
     if (msg) {
         swal({

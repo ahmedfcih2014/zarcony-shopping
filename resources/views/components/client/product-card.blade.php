@@ -17,7 +17,9 @@
                 <a href="{{ $url }}" class="btn btn-sm btn-outline-secondary">
                     {{ __("words.view-product") }}
                 </a>
-                <x-client.add-to-card class="btn btn-sm btn-outline-secondary"/>
+                <x-client.add-to-card
+                    id="{{ $id }}"
+                    class="btn btn-sm btn-outline-secondary"/>
             </div>
             <small> {{ $price ?? "" }} </small>
         </div>

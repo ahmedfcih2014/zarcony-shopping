@@ -18,8 +18,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("payment_method_id");
-            $table->unsignedBigInteger("invoice_id");
             $table->enum("order_status", OrderEnum::getStatus());
+            $table->string("address_line")->nullable();
+            $table->string("mobile")->nullable();
             $table->timestamps();
         });
     }

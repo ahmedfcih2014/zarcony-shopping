@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function isClientAuth() {
         return $this->user_role == UserEnum::client_role;
     }
+
+    public function cart() {
+        return $this->hasOne(Cart::class, "user_id");
+    }
 }

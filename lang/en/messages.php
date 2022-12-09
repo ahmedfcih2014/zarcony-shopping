@@ -16,4 +16,10 @@ return [
     'user-deleted' => 'User Deleted Successfully',
     'login-success' => 'Welcome :name, have a nice shopping',
     'intro-msg' => 'Simple shopping cart built for Zarcony',
+    'product-not-exists' => 'Product not exists in our system',
+    'product-not-in-cart' => 'Product :name not exists in your cart',
+    'product-added' => 'Product added successfully to your cart',
+    'product-removed' => 'Product removed from your cart successfully',
+    'order-placed' => 'Your order placed successfully, have a nice day',
+    'empty-cart' => 'Your cart is empty please add some product',
 ];

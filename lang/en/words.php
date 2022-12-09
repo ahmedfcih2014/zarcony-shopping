@@ -52,5 +52,11 @@ return [
     'more-brands' => 'More Brands',
     'remember-me' => 'Remember Me',
     'email-or-mobile' => 'Email / Mobile',
-    'zarcony-admin' => 'Zarcony Admin'
+    'zarcony-admin' => 'Zarcony Admin',
+    'back-to-top' => 'Back To Top',
+    'address-line' => 'Address Line',
+    'payment' => 'Payment Method',
+    'select-payment' => 'Select Payment Method',
+    'checkout' => 'Proceed Checkout',
+    'paid' => 'Paid :amount USD',
 ];

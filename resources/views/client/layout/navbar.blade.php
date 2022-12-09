@@ -6,7 +6,7 @@
             </a>
             <div class="d-flex flex-row">
                 @if(auth()->check() && auth()->user()->isClientAuth())
-                    <a href="{{ route('client.auth.login') }}" class="btn btn-dark"> {{ __("words.cart") }} </a>
+                    <a href="{{ route('client.cart.get') }}" class="btn btn-dark"> {{ __("words.cart") }} </a>
                     <form method="POST" action="{{ route("client.auth.logout") }}">
                         @csrf
                         <button class="btn btn-dark">{{ __("words.logout") }}: {{ auth()->user()->name }}</button>

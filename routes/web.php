@@ -23,4 +23,8 @@ Route::post('/login', 'AuthController@login')->name("auth.login-post");
 
 Route::group(['middleware' => "client-auth"], function () {
     Route::post('/logout', 'AuthController@logout')->name("auth.logout");
+    Route::get('cart', 'CartController@getCart')->name('cart.get');
+    Route::post('cart', 'CartController@addItem')->name('cart.add-item');
+    Route::delete('cart', 'CartController@removeItem')->name('cart.remove-item');
+    Route::post('cart/checkout', 'CartController@checkout')->name('cart.checkout');
 });
