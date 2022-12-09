@@ -19,7 +19,7 @@
 
 ### Developer Notes
 - I'm not using Repository pattern because it's useless in this case & ORM is enough to me
-- Here I'm not building full cart operations it's just checkout a single product `as task requirements` but DB is ready for full cart operations `Orders Structure only, cart most be implemented when needed`
+- Here I'm not building full cart operations it's just add single product to cart `without increment or decrement` but DB is ready for theme
 - We will write feature test only because there's no need for `unit test` at least for current time ,but in case we add services ,repositories ,etc.. `we most write unit tests for theme`
 
 ### Run Project Instructions
