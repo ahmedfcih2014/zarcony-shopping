@@ -9,7 +9,7 @@
                 <h5>{{ $product->title }}</h5>
                 {!! $product->details !!}
                 <div class="d-flex flex-column justify-content-end gap-3 align-items-end mt-3">
-                    <h5> {{ $product->price }} USD </h5>
+                    <h5> {{ $product->price }} {{ __('words.USD') }} </h5>
                     <x-client.add-to-card/>
                 </div>
             </div>

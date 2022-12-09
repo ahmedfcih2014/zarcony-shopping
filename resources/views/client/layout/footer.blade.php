@@ -3,6 +3,6 @@
         <p class="float-end mb-1">
             <a href="#">{{ __("words.back-to-top") }}</a>
         </p>
-        <p class="mb-1">Zarcony &copy;</p>
+        <p class="mb-1">{{ __('words.zarcony') }} &copy;</p>
     </div>
 </footer>

@@ -1,6 +1,4 @@
-<div class="text-center mb-3 h5">
-    Shopping By Brand
-</div>
+<div class="text-center mb-3 h5"> {{ __('words.shopping-brand') }} </div>
 <div class="swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
@@ -20,5 +18,5 @@
     <div class="swiper-button-next"></div>
 </div>
 <div class="text-end mb-3 h5">
-    <a style="color: #525252" href="{{ route('client.brands.list') }}">More Brands</a>
+    <a style="color: #525252" href="{{ route('client.brands.list') }}"> {{ __('words.more-brands') }} </a>
 </div>

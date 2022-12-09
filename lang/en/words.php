@@ -42,4 +42,15 @@ return [
     'view-product' => 'View Product',
     'client-title' => 'Zarcony Shopping',
     'add-to-cart' => 'Add To Cart',
+    'login' => 'Login',
+    'USD' => 'USD',
+    'cart' => 'Cart',
+    'zarcony' => 'Zarcony',
+    'zarcony-shopping' => 'Zarcony Shopping',
+    'shopping-product' => 'Shopping By Product',
+    'shopping-brand' => 'Shopping By Brand',
+    'more-brands' => 'More Brands',
+    'remember-me' => 'Remember Me',
+    'email-or-mobile' => 'Email / Mobile',
+    'zarcony-admin' => 'Zarcony Admin'
 ];

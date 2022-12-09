@@ -13,7 +13,7 @@
                         <div class="alert alert-danger"> {{ $msg }} </div>
                     @endif
                     <div class="mb-3">
-                        <label class="form-label">Email / Mobile</label>
+                        <label class="form-label">{{ __('words.email-or-mobile') }}</label>
                         <input type="text" name="username"
                                value="{{ old("username") }}"
                                class="form-control @error('username') is-invalid @enderror"
@@ -23,7 +23,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">{{ __('words.password') }}</label>
                         <input type="password" name="password"
                                class="form-control @error('password') is-invalid @enderror"
                                placeholder="********">
@@ -33,11 +33,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">
-                            <input type="checkbox" name="remember"> Remember Me
+                            <input type="checkbox" name="remember"> {{ __('words.remember-me') }}
                         </label>
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-dark" style="color: white; width: 100%">Login</button>
+                        <button class="btn btn-dark" style="color: white; width: 100%">{{ __('words.login') }}</button>
                     </div>
                 </form>
                     </div>

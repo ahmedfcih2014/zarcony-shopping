@@ -15,4 +15,5 @@ return [
     'user-updated' => 'User Updated Successfully',
     'user-deleted' => 'User Deleted Successfully',
     'login-success' => 'Welcome :name, have a nice shopping',
+    'intro-msg' => 'Simple shopping cart built for Zarcony',
 ];

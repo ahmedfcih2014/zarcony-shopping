@@ -27,9 +27,7 @@
                 @if(count($brands) > 0)
                     @include("client.home.brands")
                 @endif
-                <div class="text-center mb-3 h5">
-                    Shopping By Product
-                </div>
+                <div class="text-center mb-3 h5"> {{ __('words.shopping-product') }} </div>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     @foreach($products as $product)
                         <div class="col">

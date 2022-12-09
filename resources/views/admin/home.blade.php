@@ -1,6 +1,6 @@
 @extends('admin.layout.base')
 
-@section('title', 'Dashboard')
+@section('title', __('words.dashboard'))
 
 @section('content')
     @include("admin.layout.breadcrumb", ['links' => [
