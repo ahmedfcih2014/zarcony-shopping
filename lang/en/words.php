@@ -39,4 +39,5 @@ return [
     'client-role' => 'Client',
     'create-user' => 'Create User',
     'edit-user' => 'Edit User',
+    'view-product' => 'View Product',
 ];

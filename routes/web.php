@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.home', ['products' => \App\Models\Product::latestId()->limit(10)->get()]);
 });
+
+Route::get('/{sku}/{id}', function ($sku, $id) {
+    dd($sku, $id);
+})->name('products.show');
