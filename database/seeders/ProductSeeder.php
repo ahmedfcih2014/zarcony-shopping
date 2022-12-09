@@ -22,6 +22,15 @@ class ProductSeeder extends Seeder
             $dbBrands->each(function ($eachBrand) use (&$productCollection) {
                 $products = Product::factory(10)
                     ->make(['brand_id' => $eachBrand->id])
+                    ->map(function ($p) {
+                        return [
+                            "title" => $p->title,
+                            "sku" => $p->sku,
+                            "details" => $p->details,
+                            "price" => $p->price,
+                            "brand_id" => $p->brand_id,
+                        ];
+                    })
                     ->toArray();
                 $productCollection->push(...$products);
             });

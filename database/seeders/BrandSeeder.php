@@ -18,6 +18,7 @@ class BrandSeeder extends Seeder
     {
         // batch insert brands
         $brands = Brand::factory(1000)->make();
-        Brand::insert($brands->toArray());
+        // for remove appends
+        Brand::insert($brands->map(function ($b) {return ['name' => $b->name];})->toArray());
     }
 }
