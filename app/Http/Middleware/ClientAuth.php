@@ -6,7 +6,7 @@ use App\Enum\UserEnum;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminAuth
+class ClientAuth
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (
-            auth()->guard('admin')->check() &&
-            auth()->guard('admin')->user()->user_role == UserEnum::admin_role
-        ) return $next($request);
+        if (auth()->check() && auth()->user()->user_role == UserEnum::client_role) return $next($request);
         return redirect(route("admin.login"));
     }
 }

@@ -12,6 +12,10 @@ class Brand extends Model
 
     protected $fillable = ['name'];
 
+    protected $appends = [
+        'small_name'
+    ];
+
     public function products() {
         return $this->hasMany(Product::class, "brand_id");
     }
@@ -23,5 +27,13 @@ class Brand extends Model
         return $query->when($keyword, function ($q) use ($keyword) {
             $q->where("name", "like", "%$keyword%");
         });
+    }
+
+    public function GetSmallNameAttribute() {
+        $name = strip_tags($this->name);
+        if (strlen($name) > 18) {
+            $name = substr($name, 0, 18) ."...";
+        }
+        return $name;
     }
 }

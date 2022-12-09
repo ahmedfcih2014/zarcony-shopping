@@ -14,7 +14,7 @@ class AuthController extends Controller
     }
 
     public function login(LoginRequest $request) {
-        $login = auth()->attempt([
+        $login = auth()->guard('admin')->attempt([
             'email' => $request->email,
             'password' => $request->password,
             'user_role' => UserEnum::admin_role
@@ -24,7 +24,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        auth()->logout();
+        auth()->guard('admin')->logout();
         return redirect(route("admin.login"));
     }
 }

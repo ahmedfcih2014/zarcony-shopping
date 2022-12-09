@@ -40,4 +40,6 @@ return [
     'create-user' => 'Create User',
     'edit-user' => 'Edit User',
     'view-product' => 'View Product',
+    'client-title' => 'Zarcony Shopping',
+    'add-to-cart' => 'Add To Cart',
 ];

@@ -50,4 +50,8 @@ class User extends Authenticatable
             $q->orWhere("email", "like", "%$keyword%");
         });
     }
+
+    public function isClientAuth() {
+        return $this->user_role == UserEnum::client_role;
+    }
 }

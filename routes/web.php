@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.home', ['products' => \App\Models\Product::latestId()->limit(10)->get()]);
-});
+Route::get('/', "ProductController@index")->name("home");
+Route::get('/products/{id}', "ProductController@show")->name('products.show');
+Route::get('/brands', "BrandController@index")->name("brands.list");
+Route::get('/brands/{brand}', "BrandController@brandProducts")->name("brands.products");
 
-Route::get('/{sku}/{id}', function ($sku, $id) {
-    dd($sku, $id);
-})->name('products.show');
+Route::get('/login', 'AuthController@loginView')->name("auth.login");
+Route::post('/login', 'AuthController@login')->name("auth.login-post");
+
+Route::group(['middleware' => "client-auth"], function () {
+    Route::post('/logout', 'AuthController@logout')->name("auth.logout");
+});

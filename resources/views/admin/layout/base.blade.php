@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-10" style="overflow-y: scroll; height: 100vh">
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: end">
-                        <p>Welcome {{ auth()->user()->name }}</p>
+                        <p>Welcome {{ auth()->guard('admin')->user()->name }}</p>
                         <form method="POST" action="{{ route("admin.logout") }}">
                             @csrf
                             <button class="btn btn-link">{{ __("words.logout") }}</button>

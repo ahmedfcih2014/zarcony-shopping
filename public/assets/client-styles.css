@@ -48,3 +48,11 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }
+
+a {
+    text-decoration: none !important;
+}
+
+a[rel=prev], a[rel=next] {
+    color: #525252;
+}

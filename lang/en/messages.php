@@ -14,4 +14,5 @@ return [
     'user-created' => 'User Created Successfully',
     'user-updated' => 'User Updated Successfully',
     'user-deleted' => 'User Deleted Successfully',
+    'login-success' => 'Welcome :name, have a nice shopping',
 ];
