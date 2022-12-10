@@ -9,8 +9,8 @@ use App\Http\Requests\Client\Cart\CheckoutRequest;
 use App\Http\Requests\Client\Cart\RemoveItemRequest;
 use App\Models\Cart;
 use App\Models\PaymentMethod;
-use App\Services\OrderService;
 use Illuminate\Support\Facades\Cache;
+use App\Services\Order\Invoker as OrderService;
 
 class CartController extends Controller
 {
@@ -46,8 +46,16 @@ class CartController extends Controller
     }
 
     public function checkout(CheckoutRequest $request) {
-        OrderService::placeOrder(auth()->user()->load('cart.items.product'), $request);
-        return redirect(route("client.home"))
-            ->with('success-message', __('messages.order-placed'));
+        $user = auth()->user()->load('cart.items.product');
+        try {
+            $orderServiceInvoker = new OrderService($user, $request);
+            if ($orderServiceInvoker()) {
+                $user?->cart?->items()->delete();
+            }
+            return redirect(route("client.home"))
+                ->with('success-message', __('messages.order-placed'));
+        } catch (\Exception | \Error $e) {
+            return redirect()->back()->with('error-message', $e->getMessage());
+        }
     }
 }
