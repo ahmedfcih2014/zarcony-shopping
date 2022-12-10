@@ -22,4 +22,6 @@ return [
     'product-removed' => 'Product removed from your cart successfully',
     'order-placed' => 'Your order placed successfully, have a nice day',
     'empty-cart' => 'Your cart is empty please add some product',
+    'order-state-changed' => 'Order#: :id state changed to :state',
+    'order-state-will-change' => 'Order#: :id state will change to :state',
 ];

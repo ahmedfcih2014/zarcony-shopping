@@ -37,7 +37,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route("admin.products.index") }}"
+            <a href="{{ route("admin.orders.index") }}"
                class="nav-link text-white {{ request()->routeIs('admin.orders.*') ? "active" : "" }}">
                 <i class="fa fa-cubes"></i>
                 {{ __("words.orders") }}

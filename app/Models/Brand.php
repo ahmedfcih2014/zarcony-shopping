@@ -20,7 +20,7 @@ class Brand extends Model
         return $this->hasMany(Product::class, "brand_id");
     }
 
-    // HINT: it's not the perfect way to filter products but is enough for current situation
+    // HINT: it's not the perfect way to filter brands but is enough for current situation
     // in case more filter(s) added we most follow other patterns
     public function scopeFilter($query) {
         $keyword = request()->get("keyword") ?? null;

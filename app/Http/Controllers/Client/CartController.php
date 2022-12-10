@@ -35,7 +35,7 @@ class CartController extends Controller
         if (!$cart) $cart = Cart::create(['user_id' => auth()->user()->id]);
 
         // quantity fixed for now, till implement increment & decrement behavior
-        $cart->items()->create(['product_id' => $request->product_id, 'quantity' => 1]);
+        $cart->items()->firstOrCreate(['product_id' => $request->product_id, 'quantity' => 1]);
         return redirect(route('client.cart.get'))
             ->with('success-message', __('messages.product-added'));
     }

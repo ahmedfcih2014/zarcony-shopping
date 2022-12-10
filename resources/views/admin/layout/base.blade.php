@@ -59,6 +59,20 @@
                         }
                     });
             }
+            function confirmFormAction(formId, title, text) {
+                swal({
+                    title: title,
+                    text: text,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            document.getElementById(formId).submit()
+                        }
+                    });
+            }
         </script>
     </body>
 </html>

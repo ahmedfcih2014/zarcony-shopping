@@ -40,7 +40,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, "user_id");
     }
 
-    // HINT: it's not the perfect way to filter products but is enough for current situation
+    // HINT: it's not the perfect way to filter users but is enough for current situation
     // in case more filter(s) added we most follow other patterns
     public function scopeFilter($query) {
         $keyword = request()->get("keyword") ?? null;

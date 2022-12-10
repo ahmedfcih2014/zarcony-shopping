@@ -15,4 +15,12 @@ class OrderEnum
             self::canceled_status,
         ];
     }
+
+    public static function getStatesKeyValue() : array {
+        return [
+            ['key' => self::paid_status, 'value' => __('words.order-paid-status')],
+            ['key' => self::pending_status, 'value' => __('words.order-pending-status')],
+            ['key' => self::canceled_status, 'value' => __('words.order-canceled-status')],
+        ];
+    }
 }
