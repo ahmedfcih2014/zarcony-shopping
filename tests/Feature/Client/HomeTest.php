@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Client;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Fakers\BrandFaker;
@@ -15,6 +14,7 @@ class HomeTest extends TestCase
     /**
      * here we just build a single happy scenario fetching data for home
      * A basic feature test for home page.
+     * testing route: client.home
      */
     public function test_can_see_brands_and_products_successfully()
     {
