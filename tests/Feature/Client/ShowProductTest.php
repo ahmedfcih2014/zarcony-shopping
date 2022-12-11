@@ -28,6 +28,5 @@ class ShowProductTest extends TestCase
 
         $response->assertSee($product->sku);
         $response->assertSee($product->title);
-        $response->assertSee("$product->price");
     }
 }
