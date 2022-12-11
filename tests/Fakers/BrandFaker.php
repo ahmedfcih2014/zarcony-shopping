@@ -29,6 +29,6 @@ class BrandFaker
         $productsCount = 10,
         $productsAttributes = []
     ) {
-        return self::createWithProducts(1, $attributes, $productsCount, $productsAttributes);
+        return self::createWithProducts(1, $attributes, $productsCount, $productsAttributes)->first();
     }
 }
