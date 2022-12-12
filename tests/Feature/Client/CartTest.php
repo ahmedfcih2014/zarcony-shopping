@@ -3,6 +3,7 @@
 namespace Tests\Feature\Client;
 
 use App\Enum\PaymentEnum;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Fakers\BrandFaker;
@@ -61,12 +62,40 @@ class CartTest extends TestCase
         $response->assertRedirect(route('client.cart.get'));
 
         $response->assertSee($product->name);
+        $this->assertEquals(
+            __('messages.product-added'),
+            session()->get('success-message'),
+            'success session not equal'
+        );
     }
 
     /**
-     *
-    client.
-    client.cart.remove-item
+     * here we just build a single happy scenario add item to cart page
+     * A basic feature test for add to cart form.
+     * testing route: client.cart.remove-item
+     */
+    public function test_can_remove_from_cart()
+    {
+        $client = ClientFaker::getClientAuth()['client'];
+
+        $brand = BrandFaker::first();
+        $products = ProductFaker::createByBrand($brand, 2);
+        CartFaker::create($client, $products);
+        $product = $products->first();
+
+        $response = $this->actingAs($client)->delete(route('client.cart.remove-item', ['product_id' => $product->id]));
+
+        $response->assertRedirect(route('client.cart.get'));
+
+        $response->assertDontSee($product->name);
+        $this->assertEquals(
+            __('messages.product-removed'),
+            session()->get('success-message'),
+            'success session not equal'
+        );
+    }
+
+    /**
     client.cart.checkout
      */
 }

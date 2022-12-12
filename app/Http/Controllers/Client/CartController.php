@@ -42,7 +42,7 @@ class CartController extends Controller
     public function removeItem(RemoveItemRequest $request) {
         $cart = Cart::where(['user_id' => auth()->user()->id])->first();
         $cart->items()->where('product_id', $request->product_id)->delete();
-        return redirect()->back()->with('success-message', __('messages.product-removed'));
+        return redirect(route('client.cart.get'))->with('success-message', __('messages.product-removed'));
     }
 
     public function checkout(CheckoutRequest $request) {
@@ -55,7 +55,7 @@ class CartController extends Controller
             return redirect(route("client.home"))
                 ->with('success-message', __('messages.order-placed'));
         } catch (\Exception | \Error $e) {
-            return redirect()->back()->with('error-message', $e->getMessage());
+            return redirect(route('client.cart.get'))->with('error-message', $e->getMessage());
         }
     }
 }

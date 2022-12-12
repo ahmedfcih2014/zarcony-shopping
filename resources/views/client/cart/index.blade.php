@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="text-center mb-3 h5"> {{ __('words.cart') }} </div>
                 <div class="text-center mt-5">
-                    @foreach($cart->items as $item)
+                    @foreach($cart->items ?? [] as $item)
                         <div class="d-flex justify-content-between mb-2">
                             <p>
                                 ({{ $item->quantity }} X {{ $item->product->price }} USD) |
@@ -64,7 +64,7 @@
                         @enderror
                     </div>
                     <button class="btn btn-dark mb-3">
-                        {{ __('words.paid', ['amount' => $cart->items->sum(function ($i) {return $i->quantity * $i->product->price;})]) }}
+                        {{ __('words.paid', ['amount' => $cart?->items?->sum(function ($i) {return $i->quantity * $i->product->price;})]) }}
                     </button>
                 </form>
             </div>
