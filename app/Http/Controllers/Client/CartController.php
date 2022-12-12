@@ -31,8 +31,7 @@ class CartController extends Controller
     }
 
     public function addItem(AddItemRequest $request) {
-        $cart = auth()->user()->cart;
-        if (!$cart) $cart = Cart::create(['user_id' => auth()->user()->id]);
+        $cart = Cart::firstOrCreate(['user_id' => auth()->user()->id]);
 
         // quantity fixed for now, till implement increment & decrement behavior
         $cart->items()->firstOrCreate(['product_id' => $request->product_id, 'quantity' => 1]);
@@ -41,7 +40,8 @@ class CartController extends Controller
     }
 
     public function removeItem(RemoveItemRequest $request) {
-        auth()->user()->cart->items()->where('product_id', $request->product_id)->delete();
+        $cart = Cart::where(['user_id' => auth()->user()->id])->first();
+        $cart->items()->where('product_id', $request->product_id)->delete();
         return redirect()->back()->with('success-message', __('messages.product-removed'));
     }
 

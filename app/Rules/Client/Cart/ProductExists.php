@@ -2,6 +2,7 @@
 
 namespace App\Rules\Client\Cart;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Contracts\Validation\InvokableRule;
 
@@ -21,7 +22,8 @@ class ProductExists implements InvokableRule
         if (!$product) {
             $fail(__('messages.product-not-exists'));
         }
-        if (!auth()->user()->cart->items()->where("product_id", $value)->exists()) {
+        $cart = Cart::where('user_id', auth()->user()->id)->first();
+        if (!$cart->items()->where("product_id", $value)->exists()) {
             $fail(__("messages.product-not-in-cart", ['name' => $product->title]));
         }
     }

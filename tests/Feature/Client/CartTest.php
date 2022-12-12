@@ -45,8 +45,27 @@ class CartTest extends TestCase
     }
 
     /**
+     * here we just build a single happy scenario add item to cart page
+     * A basic feature test for add to cart form.
+     * testing route: client.cart.add-item
+     */
+    public function test_can_add_to_cart()
+    {
+        $client = ClientFaker::getClientAuth()['client'];
+
+        $brand = BrandFaker::first();
+        $product = ProductFaker::firstByBrand($brand);
+
+        $response = $this->actingAs($client)->post(route('client.cart.add-item', ['product_id' => $product->id]));
+
+        $response->assertRedirect(route('client.cart.get'));
+
+        $response->assertSee($product->name);
+    }
+
+    /**
      *
-    client.cart.add-item
+    client.
     client.cart.remove-item
     client.cart.checkout
      */
