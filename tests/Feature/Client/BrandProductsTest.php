@@ -27,8 +27,8 @@ class BrandProductsTest extends TestCase
 
         // iterate through data and check we see it in home page or not
         $response->assertSee($brand->name);
-        $brand->products->each(function ($p) use ($response) {
-            $response->assertSee($p->small_name);
+        $brand->products->each(function ($product) use ($response) {
+            $response->assertSee($product->small_name);
         });
     }
 }

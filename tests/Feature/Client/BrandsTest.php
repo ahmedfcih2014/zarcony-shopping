@@ -26,8 +26,8 @@ class BrandsTest extends TestCase
         $response->assertStatus(200);
 
         // iterate through data and check we see it in home page or not
-        $brands->each(function ($b) use ($response) {
-            $response->assertSee($b->small_name);
+        $brands->each(function ($brand) use ($response) {
+            $response->assertSee($brand->small_name);
         });
     }
 }

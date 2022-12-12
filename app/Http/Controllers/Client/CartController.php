@@ -22,7 +22,7 @@ class CartController extends Controller
                 return PaymentMethod::all();
             }
         );
-        $cart = auth()->user()->cart?->load('items.product');
+        $cart = Cart::where('user_id', auth()->user()->id)->with('items.product')->first();
         if (!$cart) {
             return redirect(route('client.home'))
                 ->with('warn-message', __('messages.empty-cart'));
