@@ -3,6 +3,7 @@
 namespace Tests\Feature\Client;
 
 use App\Enum\PaymentEnum;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -96,6 +97,34 @@ class CartTest extends TestCase
     }
 
     /**
-    client.cart.checkout
+     * here we just build a single happy scenario add item to cart page
+     * A basic feature test for add to cart form.
+     * testing route: client.cart.checkout
+     * @group test
      */
+    public function test_can_checkout_cart() {
+        $client = ClientFaker::getClientAuth()['client'];
+
+        $brand = BrandFaker::first();
+        $products = ProductFaker::createByBrand($brand, 2);
+        CartFaker::create($client, $products);
+        $payment = PaymentMethodFaker::first(['name' => PaymentEnum::cod]);
+        $payload = [
+            'address_line' => fake()->address(),
+            'mobile' => fake()->numerify("011########"),
+            'payment_id' => $payment->id
+        ];
+        $response = $this->actingAs($client)->post(route('client.cart.checkout'), $payload);
+
+        $response->assertRedirect(route("client.home"));
+        $this->assertEquals(
+            __('messages.order-placed'),
+            session()->get('success-message'),
+            'success session not equal'
+        );
+        $order = Order::first();
+        $this->assertEquals($payload['address_line'], $order->address_line, 'Order address != payload address');
+        $this->assertEquals($payload['mobile'], $order->mobile, 'Order mobile != payload mobile');
+        $this->assertEquals($client->id, $order->user_id, 'Order user id != client id');
+    }
 }
